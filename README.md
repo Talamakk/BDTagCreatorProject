@@ -13,3 +13,5 @@ This tool is designed for enabling creation of event-based solutions. It's main 
 Azure Functions is the solution enabling serverless code execution and running apps in Azure cloud environment. 
 ### All together - how does it work?
 Every time a new resource is created among the subscription, information about this event reaches the Azure Event Grid endpoint. After filtering events only related to creation of resource group, Event Grid routes these events directly to the proper event handler - function app. All event data and metadata are received by function inside of function app and are used to get necessary information: resource group URI and it's creator. Subsequently, the function updates newly created resource group with creator's user name. 
+![Screen2](https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/DIAGRAM1.jpg)
+
