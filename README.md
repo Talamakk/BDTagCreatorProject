@@ -13,7 +13,7 @@ This tool is designed for enabling creation of event-based solutions. It's main 
 ### Azure Functions
 Azure Functions is the solution enabling serverless code execution and running apps in Azure cloud environment. 
 ### How does it work?
-Every time a new resource is created among the subscription, information about this event reaches the Azure Event Grid endpoint. After filtering events only related to creation of resource group, Event Grid routes these events directly to the proper event handler - function app. All event data and metadata are received by the function inside of the function app and are used to get necessary information: resource group URI and it's creator. Subsequently, the function updates newly created resource group with creator's user name using the `Update-AzTag` cmdlet.
+Every time a new resource is created among the subscription, information about this event reaches the Azure Event Grid endpoint. After filtering events only related to creation of resource group, Event Grid routes these events directly to the proper event handler - function app. All event data and metadata are received by the function inside of the function app and are used to get necessary information: resource group URI and it's creator. Subsequently, the function updates newly created resource group tag with creator's user name using the `Update-AzTag` cmdlet.
 
 <img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/DIAGRAM1.jpg" width="500">
 
@@ -39,4 +39,6 @@ Every time a new resource is created among the subscription, information about t
 <img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS3.JPG">
 
 
+6. Thanks to `ConvertTo-Json` part in our function code, we can copy and check the formatted log (created by the Azure Event Grid every time the event occurs) and find the condition which allows to separate only event related to creating new resource group. Now use this condition as an advanced filter in the event subscription
 
+<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS4.jpg" width="700">
