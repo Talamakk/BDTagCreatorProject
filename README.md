@@ -4,7 +4,7 @@
 BDTagCreatorProject solution was developed to make easier organizing and identifying resources groups among Microsoft Azure subscription by tagging newly created resource group with creator's user name. Azure Event Grid, Azure Functions and PowerShell script enable to automate this task - see [How does it work?](how-does-it-work?) section for detailed solution architecture.
 This project was made mostly for cloud solutions training purposes so any feedback is more than welcome!
 
-<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/CreatingRG.jpg" width="500">  
+<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/CreatingRG.jpg" width="500">
 
 ## Solution concept 
 Microsoft Azure has plenty of different tools we can use to automate tasks. This project was built using [Azure Event Grid](https://azure.microsoft.com/pl-pl/services/event-grid/) and [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview).
@@ -13,8 +13,9 @@ This tool is designed for enabling creation of event-based solutions. It's main 
 ### Azure Functions
 Azure Functions is the solution enabling serverless code execution and running apps in Azure cloud environment. 
 ### How does it work?
-Every time a new resource is created among the subscription, information about this event reaches the Azure Event Grid endpoint. After filtering events only related to creation of resource group, Event Grid routes these events directly to the proper event handler - function app. All event data and metadata are received by the function inside of the function app and are used to get necessary information: resource group URI and it's creator. Subsequently, the function updates newly created resource group with creator's user name using the `Update-AzTag` cmdlet.  
-![Screen2](https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/DIAGRAM1.jpg)
+Every time a new resource is created among the subscription, information about this event reaches the Azure Event Grid endpoint. After filtering events only related to creation of resource group, Event Grid routes these events directly to the proper event handler - function app. All event data and metadata are received by the function inside of the function app and are used to get necessary information: resource group URI and it's creator. Subsequently, the function updates newly created resource group with creator's user name using the `Update-AzTag` cmdlet.
+
+<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/DIAGRAM1.jpg" width="500">
 
 ## Implementation step by step
 1. Create separate resource group in order to have all resources related to this solution in one place
