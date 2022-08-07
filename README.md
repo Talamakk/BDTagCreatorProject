@@ -3,6 +3,7 @@
 ## Introduction and Demo
 BDTagCreatorProject solution was developed to make easier organizing and identifying resources groups among Microsoft Azure subscription by tagging newly created resource group with creator's user name. Azure Event Grid, Azure Functions and PowerShell script enable to automate this task - see [How does it work?](how-does-it-work?) section for detailed solution architecture.
 This project was made mostly for cloud solutions training purposes so any feedback is more than welcome!
+
 <img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/CreatingRG.jpg" width="500">  
 
 ## Solution concept 
@@ -23,7 +24,7 @@ Every time a new resource is created among the subscription, information about t
 ![Screen4](https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS2.jpg)
 4. Create a new function triggered by Azure Event Grid within your Function App and paste code from *BDTagCreatorFunction.ps1* file
 5. Create a new event subsciption within you resource group and select event types to filter (*Resource Write Success* only) and endpoint type - previously created function 
-![Screen5](https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS3.jpg)
+![Screen5](https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS3.JPG)
 
 
 Thanks to JSON 
