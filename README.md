@@ -1,7 +1,7 @@
 # BDTagCreatorProject 
 
 ## Introduction and Demo
-BDTagCreatorProject solution was developed to make easier organizing and identifying resources groups among Microsoft Azure subscription by tagging newly created resource group with creator's user name. Azure Event Grid, Azure Functions and PowerShell script enable to automate this task - see [How does it work?](how-does-it-work?) section for detailed solution architecture.
+BDTagCreatorProject solution was developed to make easier organizing and identifying resources groups among Microsoft Azure subscription by tagging newly created resource group with creator's user name. Azure Event Grid, Azure Functions and PowerShell script enable to automate this task - see [How does it work?](https://github.com/Talamakk/BDTagCreatorProject#how-does-it-work) section for detailed solution architecture.
 This project was made mostly for cloud solutions training purposes so any feedback is more than welcome!
 
 <img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/CreatingRG.jpg" width="500">
