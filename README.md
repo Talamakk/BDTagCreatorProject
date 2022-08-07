@@ -19,15 +19,24 @@ Every time a new resource is created among the subscription, information about t
 
 ## Implementation step by step
 1. Create separate resource group in order to have all resources related to this solution in one place
+
+
 2. Create new Function App within created resource group and uncomment "Az" line in requirements in order to enable using Az Powershell module
-![Screen3](https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS1.jpg)
+
+<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS1.jpg" width="700">
+
+
 3. Enable the access to tags for Function App by configuring system assigned managed identity for it and assign it a proper role, eg. Tag Contributor
-![Screen4](https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS2.jpg)
+
+<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS2.jpg" width="700">
+
+
 4. Create a new function triggered by Azure Event Grid within your Function App and paste code from *BDTagCreatorFunction.ps1* file
+
+
 5. Create a new event subsciption within you resource group and select event types to filter (*Resource Write Success* only) and endpoint type - previously created function 
-![Screen5](https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS3.JPG)
 
+<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS3.JPG">
 
-Thanks to JSON 
 
 
