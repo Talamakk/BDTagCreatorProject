@@ -38,12 +38,16 @@
 param($eventGridEvent, $TriggerMetadata)
 
 # Show event log formatted in JSON
-Write-Output "Event log in JSON:"
+Write-Information "Event log in JSON:"
 $eventGridEvent | ConvertTo-Json | Write-Output
 
 # Get all needed details from the log: creator name and resource group URI
 $creatorValue = $eventGridEvent.data.claims.name
 $rgURI = $eventGridEvent.data.resourceUri
+
+# Show information for diagnostics purposes
+Write-Information "<$rgURI> is the resource group URI"
+Write-Information "<$creatorValue> will be a value for the creator tag"
 
 # Create key/value variable as a hash table
 $tag = @{"Creator" = "$creatorValue"}
@@ -53,8 +57,9 @@ Try {
     Update-AzTag -ResourceId $rgURI -Tag $tag -Operation Merge -ErrorAction Stop
 }
 Catch {
-    $Message = $_Exception.message
-    Write-Output "Error occured. Details below:"
-    Write-Output $Message
+    $Message = $_.Exception.message
+    Write-Information "Error occured while updating tags. Details below:"
+    Write-Information $Message
     Break
 }
+
