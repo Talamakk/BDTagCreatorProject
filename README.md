@@ -15,7 +15,7 @@ Azure Functions is the solution enabling serverless code execution and running a
 ### How does it work?
 Every time a new resource is created among the subscription, information about this event reaches the Azure Event Grid endpoint. After filtering events only related to creation of resource group, Event Grid routes these events directly to the proper event handler - function app. All event data and metadata are received by the function inside of the function app and are used to get necessary information: resource group URI and it's creator. Subsequently, the function updates newly created resource group tag with creator's user name using the `Update-AzTag` cmdlet.
 
-<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/DIAGRAM1.jpg" width="700">
+<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/DIAGRAM1.jpg" width="550">
 
 ## Implementation step by step
 1. Create separate resource group in order to have all resources related to this solution in one place
@@ -62,4 +62,4 @@ Invoke-AzRestMethod -PATH "${id}?api-version=2016-09-01" -payload $tags -Method 
 
 Suprisingly, this operation in Azure is read as a *resourcegroup/write* action despite it's actually not creating new resource group. As a consequence, it triggers the function and changes tags which is not the aim of this project. The solution to this problem could be found by further log analysis. Unlike all updating methods, creating new resource group is always PUT httpRequest method. Using this observation and creating another advanced filter solves this case. 
 
-<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS.jpg" width="700">
+<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/SBS5.jpg" width="700">
