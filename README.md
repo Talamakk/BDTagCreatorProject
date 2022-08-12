@@ -15,7 +15,7 @@ Azure Functions is the solution enabling serverless code execution and running a
 ### How does it work?
 Every time a new resource is created among the subscription, information about this event reaches the Azure Event Grid endpoint. After filtering events only related to creation of resource group, Event Grid routes these events directly to the proper event handler - function app. All event data and metadata are received by the function inside of the function app and are used to get necessary information: resource group URI and it's creator. Subsequently, the function updates newly created resource group tag with creator's user name using the `Update-AzTag` cmdlet.
 
-<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/DIAGRAM1.jpg" width="550">
+<img src="https://github.com/Talamakk/BDTagCreatorProject/blob/main/Images/DIAGRAM1.jpg" width="700">
 
 ## Implementation step by step
 1. Create separate resource group in order to have all resources related to this solution in one place
